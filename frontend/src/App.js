@@ -11,7 +11,12 @@ function App() {
 
   const handleSubmit = ()=>{
    axios.post('http://localhost:3001/login',{email,password}).then((res)=>{
-    
+    console.log();
+    if (res.data.success) {
+      alert('Login Success')
+    } else {
+      alert('Login failed!')
+    }
    })
   }
   return (

@@ -21,9 +21,6 @@ const userData = [
     }
 ]
 
-
-const port = 3000
-
 app.post("/login", (req, res) => {
     const newName = userData.find(user => user.email === req.body.email && user.password === req.body.password)
 
