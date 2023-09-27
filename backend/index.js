@@ -10,6 +10,6 @@ app.post("/login",(req,res)=>{
    console.log(req.body); 
 })
 
- app.listen(3000,()=>{
+ app.listen(3001,()=>{
     console.log();
  })
