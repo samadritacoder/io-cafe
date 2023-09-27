@@ -1,7 +1,7 @@
 
 import './App.css';
 import {useState} from 'react'
-
+import  axios  from "axios";
 
 function App() {
 
@@ -10,7 +10,9 @@ function App() {
 
 
   const handleSubmit = ()=>{
-    console.log(email,password)
+   axios.post('http://localhost:3001/login',{email,password}).then((res)=>{
+    
+   })
   }
   return (
     <div className="App">
