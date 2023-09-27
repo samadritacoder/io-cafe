@@ -1,15 +1,48 @@
- const express = require('express') ;
- const bodyparser = require('body-parser') ;
- 
- const app = express(); 
+const express = require('express');
+const bodyparser = require('body-parser');
 
- app.use(bodyparser.json());
+const app = express();
 
- 
-app.post("/login",(req,res)=>{
-   console.log(req.body); 
-})
+const userData = [
+    {
+        email: 'bur123',
+        password: "1234"
+    },  
+    {
+        email: 'bur1234',
+        password: "12345"
+    },
+    {
+        email: 'bur12345',
+        password: "123456"
+    }
+]
 
- app.listen(3000,()=>{
-    console.log();
- })
+app.use(bodyparser.json());
+
+const port = 3000
+
+app.post("/login", (req, res) => {
+    const newName = userData.find(user => user.email === req.body.email && user.password === req.body.password)
+
+    if (newName) {
+        res.send({
+            success: true,
+            errer: false
+
+        })
+    } else {
+        res.send({
+            success: false,
+            errer: true
+        }
+        );
+    }
+}
+)
+
+
+
+    app.listen(3000, () => {
+        console.log();
+    })
